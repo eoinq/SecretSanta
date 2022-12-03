@@ -10,6 +10,11 @@ import smtplib
 year = datetime.date.today().year
 
 
+def unique_names_check(participants):
+    names = [participant['name'] for participant in participants]
+    assert len(set(names)) == len(participants), "There are less unique names than participants."
+
+
 class Pairing():
     
     def __init__(self, participants):
@@ -154,9 +159,9 @@ def parse_arguments():
 if __name__ == '__main__':
     
     import config
-    
     args = parse_arguments()
-            
+    
+    unique_names_check(config.participants)                  
     
     if args.official:
         pairing = create_pairing(config.participants, config.max_no_years)
