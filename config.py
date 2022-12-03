@@ -3,10 +3,16 @@ participants = [
     {'name':'Mary', 'group':'JM', 'email':'mary@mail.com'},
     {'name':'Fiachra', 'group':'FN', 'email':'fiachra@mail.com'},
     {'name':'Niamh', 'group':'FN', 'email':'niamh@mail.com'},
-    {'name':'Seamus', 'group':'Se', 'email':'seamus@mail.com'},
+    {'name':'Seamus Flynn', 'group':'Se', 'email':'seamus@mail.com'},
     {'name':'Maeve', 'group':'Ma', 'email':'maeve@mail.com'},
-    {'name':'Eamonn', 'group':'ES', 'email':'eamonn@mail.com'},
-    {'name':'Sarah', 'group':'ES', 'email':'sarah@mail.com'},
+    {'name':'Eamonn', 'group':'ESTL', 'email':'eamonn@mail.com'},
+    {'name':'Sarah', 'group':'ESTL', 'email':'sarah@mail.com'},
+    {'name':'Tom', 'group':'ESTL', 'email':'tom@mail.com'},
+    {'name':'Lucia', 'group':'ESTL', 'email':'lucia@mail.com'},
+    {'name':'Seamus Nolan', 'group':'SKB', 'email':'seamusn@mail.com'},
+    {'name':'Kevin', 'group':'SKB', 'email':'kevin@mail.com'},
+    {'name':'Belinda', 'group':'SKB', 'email':'belinda@mail.com'},
+    {'name':'Gwen', 'group':'Gw', 'email':'gwen@mail.com'},
 ]    
     
 
