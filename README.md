@@ -1,17 +1,9 @@
 # Secret Santa
 
-A python programme to perform an annual random pairing of givers and receivers among a group of participants. 
-
+A python programme to perform an annual random set of pairings of givers and receivers among a collection of participants, automatically emailing the givers with news of their recipient, and saving a record to file. 
 
 There are two optional constraints on the pairings:
-* No giver will be assigned a recipient who they had in the previous max_no_years. The programme automatically records the pairing each year, os that in subsequent   in a given year for 
-* 
+* Each participant may be assigned a group, such that no two participants belonging to the same group are paired.
+* No giver will be re-assigned a recipient they had in the previous `max_no_years` years. If `max_no_years` is too high for a valid match to be found, the programme will automatically recursively decrease `max_no_years by 1 until a valid set of pairings is obtained.
 
-subject to two constraints:
-- no giver is assigned a recipient which they   previous max_no_years. If max_no_years is too high, it is not possible to find a valid match max_no_years will be recursively decreased by 1 until a valid set of pairings is found.
-
-
-
-This python programme will randomly assign gift givers and receivers among a group of participants subject to
-- no two people belonging to the same group are matched
-- no giver will have the same recipient in from the previous max_no_years, if it is not possible to find a valid match max_no_years will be recursively decreased by 1 until a valid set of pairings is found.
+To run this code is necessary to configure SMTP settings for an email address to distribute the mails. One option is to use gmail, in which case it is necessary to turn on 2-step verification in order to set up a custom password.
