@@ -11,8 +11,8 @@ year = datetime.date.today().year
 
 
 def unique_names_check(participants):
-    names = [participant['name'] for participant in participants]
-    assert len(set(names)) == len(participants), "There are less unique names than participants."
+    unique_names = set([participant['name'] for participant in participants])
+    assert len(unique_names) == len(participants), "ERROR: There are duplicate names among the participants."
 
 
 class Pairing():
@@ -52,7 +52,7 @@ class Pairing():
 def create_pairing(participants, max_no_years, counter_cutoff=100000):
     
     if max_no_years == -1:
-        raise Exception(f"ERROR: no pairing found")
+        raise Exception("ERROR: no pairing found")
     
     recent_matches = collect_recent_matches(participants, max_no_years)
     
