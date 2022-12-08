@@ -90,9 +90,10 @@ def retrieve_pairing(retrieve_year):
     try:
         pairing = pickle.load( open(f"previous/pairs_{retrieve_year}.dat", "rb" ) )
         for (giver, receiver) in pairing:
-            print(f"{giver} -> {receiver}")
-        except:
+            print(f"{giver['name']} -> {receiver['name']}")
+    except:
         print(f"No file found file for {retrieve_year}")
+
 
 
 class Mail():
