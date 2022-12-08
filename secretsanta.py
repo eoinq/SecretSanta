@@ -88,12 +88,19 @@ def collect_recent_matches(participants, max_no_years):
 
 def retrieve_pairing(retrieve_year):
     try:
-        pairing = pickle.load( open(f"previous/pairs_{retrieve_year}.dat", "rb" ) )
-        for (giver, receiver) in pairing:
-            print(f"{giver['name']} -> {receiver['name']}")
+        pairs = pickle.load( open(f"previous/pairs_{retrieve_year}.dat", "rb" ) )
+        names = {giver['name']: receiver['name'] for (giver, receiver) in pairs}
+        input_name = str(input("If pairing for a single giver is wanted enter their name, otherwise enter ALL:\n"))
+        if input_name == 'ALL':
+            for name in names:
+                print(f"{name} -> {names[name]}")
+        else:
+            try:
+                print(f"{input_name} -> {names[input_name]}")
+            except:
+                print(f"No entry for a participant named: {input_name}")                
     except:
         print(f"No file found file for {retrieve_year}")
-
 
 
 class Mail():
@@ -118,7 +125,7 @@ class Mail():
             f'Subject: {self.message_subject}"\n\n' \
             f'{self.message_text}\n'
 
-        message = message.replace('{year}', year)
+        message = message.replace('{year}', str(year))
         message = message.replace('{giver_name}', giver_name)
         message = message.replace('{receiver_name}', receiver_name)
 
