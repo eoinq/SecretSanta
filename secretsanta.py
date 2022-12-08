@@ -86,6 +86,15 @@ def collect_recent_matches(participants, max_no_years):
     return recent_matches
 
 
+def retrieve_pairing(retrieve_year):
+    try:
+        pairing = pickle.load( open(f"previous/pairs_{retrieve_year}.dat", "rb" ) )
+        for (giver, receiver) in pairing:
+            print(f"{giver} -> {receiver}")
+     except:
+        print(f"No file found file for {retrieve_year}")
+
+
 class Mail():
 
     def __init__(self, mail_settings, message_settings):
@@ -105,9 +114,10 @@ class Mail():
         message = \
             f'From: {self.message_from} <{self.email}>\n' \
             f'To: {giver_name} <{giver_email}>\n' \
-            f'Subject: {year} {self.message_subject}"\n\n' \
+            f'Subject: {self.message_subject}"\n\n' \
             f'{self.message_text}\n'
 
+        message = message.replace('{year}', year)
         message = message.replace('{giver_name}', giver_name)
         message = message.replace('{receiver_name}', receiver_name)
 
@@ -148,10 +158,15 @@ def parse_arguments():
         type=str,
         help='Send a test email to EMAIL to check SMTP settings')
     
-    parser.add_argument('--check-pairing',
-        dest='pairing',
+    parser.add_argument('--random-pairing',
+        dest='randompairing',
         action='store_true',
         help='Print out a sampled valid pairing')
+    
+    parser.add_argument('--retrieve-pairing',
+        dest='retrievepairing',
+        type=int,
+        help='Retrieve pairing record for a given YEAR')
 
     return parser.parse_args()
         
@@ -175,10 +190,14 @@ if __name__ == '__main__':
         mail = Mail(config.mail_settings, config.message_settings)
         mail.send_test_mail(args.testmail)
     
-    if args.pairing:
+    if args.randompairing:
         pairing = create_pairing(config.participants, config.max_no_years)
         for (giver, receiver) in pairing.pairs:
-            print(giver['name'], receiver['name'])
+            print(f"{giver['name']} -> {receiver['name']}")
+            
+    if args.retrievepairing:
+        retrieve_year = args.retrievepairing
+        retrieve_pairing(retrieve_year)
 
         
  
