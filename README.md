@@ -20,28 +20,38 @@ The programme is configured by editing the `config.py` file. The entries require
 
 # Execution
 
-There are four exection options as follows.
+There are four execution options as follows.
 
-### Generate and print out a sample random pairing
+### Random pairing
 
 ```
 $ python secretsanta.py --random-pairing
 ```
 
+Samples a random valid pairing, and prints the result for inspection.
+
+
 ### Send a test email to ensure SMTP settings are working
 
 ```
-$ python secretsanta.py --test-mail testaddress@mail.com
+$ python secretsanta.py --test-mail test_address@mail.com
 ```
 
-### Run the official Secret Santa
+Sends a test email to `test_address@mail.com` to ensure that the SMTP setting are correctly configured. Also allows for inspection of formatting of the Secret Santa mail
+
+### Official
 
 ```
 $ python secretsanta.py --official
 ```
 
-### Retrieve pairings from a given year
+Performs the official run. Generates a valid pairing, sends out the notification mails to the participants, and saves a record to file in a folder called `previous` (creating it if necessary).
+
+
+### Retrieve pairing 
 
 ```
 $ python secretsanta.py --retrieve-pairing year
 ```
+
+Allows one to check the official pairing from a given `year`. The user will be prompted for the `name` of the giver of interest, and can access the complete pairing by entering ALL.
