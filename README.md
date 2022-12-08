@@ -13,7 +13,7 @@ The code programme requires configuration of SMTP settings for an email address 
 
 The programme is configured by editing the `config.py` file. The entries required here are:
 * `participants`: a list of participants, with each specified by a python dictionary with entries for `name` and `email`. In addition one can optionally specify a `group` entry for a participant if it is wished that no two participants with the same `group` value are paired.
-* `max_no_years`: a non-negative integer specifying the number of intervening years for which a giver cannot get the same recipient twice. If not specified the default value is zero. If `max_no_years` is too high for a match to be found it will be recursively decreased  by 1 until a valid set of pairings is obtained.
+* `max_no_years`: a non-negative integer specifying the number of intervening years for which a giver cannot get the same recipient twice. If `max_no_years` is too high for a match to be found it will be recursively decreased  by 1 until a valid set of pairings is obtained.
 * `message_settings`: a python dictionary containing the specifications of the Secret Santa mail, namely 'message_from', 'message_subject', and 'message_text'.
 * `mail_settings`: a python dictionary specifying the SMTP settings for the email address used to distribute the Secret Santa mails, namely `host`, `port`, `mail` and `password`.
 
