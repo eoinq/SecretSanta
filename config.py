@@ -21,7 +21,7 @@ max_no_years = 5
 
 message_settings = {
     'message_from': "Mr. Elf",
-    'message_subject': "Secret Santa!",
+    'message_subject': "Secret Santa {year}!",
     'message_text': """\
 Dear {giver_name},
 
