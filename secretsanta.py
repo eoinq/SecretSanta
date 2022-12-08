@@ -42,6 +42,7 @@ class Pairing():
         if not os.path.exists(folder_name):
             os.makedirs(folder_name)
         pickle.dump(self.pairs, open(f"{folder_name}/pairs_{year}.dat", "wb"))
+        print(f"Official record for {year} saved to file in /previous")
             
     def send_secret_santa_mails(self, mail):
         for (giver, receiver) in self.pairs:
