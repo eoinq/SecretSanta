@@ -17,3 +17,31 @@ The programme is configured by editing the `config.py` file. The entries require
 * `message_settings`: a python dictionary containing the specifications of the Secret Santa mail, namely 'message_from', 'message_subject', and 'message_text'.
 * `mail_settings`: a python dictionary specifying the SMTP settings for the email address used to distribute the Secret Santa mails, namely `host`, `port`, `mail` and `password`.
 
+
+# Execution
+
+There are four exection options as follows.
+
+### Generate and print out a sample random pairing
+
+```
+$ python secretsanta.py --random-pairing
+```
+
+### Send a test email to ensure SMTP settings are working
+
+```
+$ python secretsanta.py --test-mail testaddress@mail.com
+```
+
+### Run the official Secret Santa
+
+```
+$ python secretsanta.py --official
+```
+
+### Retrieve pairings from a given year
+
+```
+$ python secretsanta.py --retrieve-pairing year
+```
