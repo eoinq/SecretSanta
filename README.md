@@ -1,6 +1,6 @@
 # Secret Santa
 
-A python programme to perform the annual Secret Santa ritual. The code generates a random pairing of givers and receivers among a collection of participants, automatically emailing each giver with news of their recipient, and saves a record to file so that in subsequent years we can inforce variety upon who gets who. 
+A python programme to perform an annual Secret Santa ritual. The code generates a random pairing of givers and receivers among a collection of participants, automatically emails each giver with news of their recipient, and saves a record to file.
 
 The code allows for two optional constraints on the pairings:
 * Each participant may be assigned a `group`, such that no two participants belonging to the same `group` are paired. This can be useful if there are couples or family units among the participants, and it is desired that pairings within these are avoided. 
