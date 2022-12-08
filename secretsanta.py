@@ -45,7 +45,6 @@ class Pairing():
             
     def send_secret_santa_mails(self, mail):
         for (giver, receiver) in self.pairs:
-            print("Need to uncomment send_secret_santa_mails!")
             mail.send_secret_santa_mail(giver, receiver)
     
     
