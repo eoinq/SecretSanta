@@ -89,14 +89,14 @@ def collect_recent_matches(participants, max_no_years):
 def retrieve_pairing(retrieve_year):
     try:
         pairs = pickle.load( open(f"previous/pairs_{retrieve_year}.dat", "rb" ) )
-        names = {giver['name']: receiver['name'] for (giver, receiver) in pairs}
+        pair_names = {giver['name']: receiver['name'] for (giver, receiver) in pairs}
         input_name = str(input("If pairing for a single giver is wanted enter their name, otherwise enter ALL:\n"))
         if input_name == 'ALL':
-            for name in names:
-                print(f"{name} -> {names[name]}")
+            for name in pair_names:
+                print(f"{name} -> {pair_names[name]}")
         else:
             try:
-                print(f"{input_name} -> {names[input_name]}")
+                print(f"{input_name} -> {pair_names[input_name]}")
             except:
                 print(f"No entry for a participant named: {input_name}")                
     except:
